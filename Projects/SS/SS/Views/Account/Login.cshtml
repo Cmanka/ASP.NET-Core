@@ -1,0 +1,45 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login form</title>
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Js/jquery-3.5.1.min.map" />
+    <link href="~/Css/signin.css" rel="stylesheet" />
+</head>
+<body class="text-center">
+    <form method="post" class="form-signin" asp-action="Login" asp-controller="Account">
+        <input type="hidden" asp-for="ReturnUrl" />
+        <img class="mb-4" src="~/Images/Icon.jpg" alt="" width="100" height="80">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div class="form-group">
+            <label asp-for="UserName" class="sr-only"></label>
+            <input asp-for="UserName" class="form-control" placeholder="User name">
+            <span asp-validation-for="UserName" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="sr-only"></label>
+            <input asp-for="Password" class="form-control" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <a asp-action="ForgotPassword" asp-controller="Account">Forgot password?</a>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block btn-dark" type="submit">Sign in</button>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-lg btn-primary btn-block btn-dark" asp-action="Register" asp-controller="Account">Create new account</a>
+        </div>
+        <p class="mb-3 text-muted">© 2020 Sneaker Shop</p>
+    </form>
+    <script src="~/Js/bootstrap.min.js"></script>
+</body>
+</html>
+

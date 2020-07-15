@@ -1,0 +1,31 @@
+﻿@model Sneaker
+@{
+    ViewBag.Title = "Configrm remove page";
+}
+ 
+<div>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+ 
+        <dt>Price</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dd>
+            <div style="height:250px;width:250px;">
+                <img style="height:100%;width:100%;" src="~/Images/@Model.PicturePath" />
+            </div>
+        </dd>
+    </dl>
+ 
+    <div>
+        <form asp-controller="Sneaker" asp-action="Remove" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark" value="Remove" />
+            </div>
+        </form>
+    </div>
+</div>

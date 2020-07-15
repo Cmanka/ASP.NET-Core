@@ -1,0 +1,53 @@
+﻿@model ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "User cart";
+
+}
+@if (Model.ShoppingCart.ShoppingCartItems.Count == 0)
+{
+    <div style="text-align:center">
+        <h1> Your cart is empty <a asp-controller="Home" asp-action="Index">continue shopping</a></h1>
+    </div>
+}
+else
+{
+    <table class="table table-hover table-bordered table-light" style="font-size:1.5rem;font-weight:600; border-spacing:7px 11px">
+        <tr>
+            <th>Selected Quantity</th>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Sneakers Image</th>
+            <th></th>
+        </tr>
+        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <tr>
+                <td>@line.Quantity</td>
+                <td>@line.Sneaker.Brand</td>
+                <td>@line.Sneaker.Name</td>
+                <td>@line.Sneaker.Price.ToString("c")</td>
+                <td>@line.Sneaker.Color</td>
+                <td>
+                    <div style="height:175px;width:175px;">
+                        <img style="height:100%;width:100%;" src="~/Images/@line.Sneaker.PicturePath" />
+                    </div>
+                </td>
+                <td>
+                    <a asp-controller="Cart" asp-action="RemoveFromShopCart" asp-route-sneakersId="@line.Sneaker.Id" class="btn btn-dark active">Remove</a>
+                </td>
+            </tr>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="3" align="left">Total:@Model.ShoppingCartTotal.ToString("c")</td>
+                <td colspan="4" align="right">
+                    <a  asp-controller="Order" asp-action="Checkout" class="btn btn-dark active">Make an order</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+}
+

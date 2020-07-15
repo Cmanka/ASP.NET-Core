@@ -1,0 +1,30 @@
+﻿@model IndexViewModel
+
+@{
+    ViewBag.Title = "Sneakers Shop";
+}
+
+<div class="row mt-3 mb-3" style="background-color:ghostwhite;">
+    @foreach (var sneakers in Model.Sneakers)
+    {
+        @if (sneakers.Count > 0)
+        {
+            <div class="col-lg-4 mt-4">
+                <h3>@sneakers.Brand,@sneakers.Name</h3>
+                <div style="height:330px;width:330px;">
+                    <img asp-append-version="true" class="img-thumbnail" style="height:100%;width:100%;" src="~/Images/@sneakers.PicturePath" alt="@sneakers.Name" />
+                </div>
+                <div class="row mr-2 mt-3">
+                    <div class="col">
+                        <h3>@sneakers.Price.ToString("c"), in stock @sneakers.Count</h3>
+                    </div>
+                    <div class="col" style="text-align:right">
+                        <a asp-controller="Cart" asp-action="AddToShopCart" asp-route-sneakersId="@sneakers.Id" class="btn btn-dark active" role="button" aria-pressed="true">Add to cart</a>
+                    </div>
+                </div>
+
+            </div>
+        }
+    }
+</div>
+

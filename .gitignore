@@ -350,3 +350,6 @@ MigrationBackup/
 .ionide/
 
 wwwroot/[Jj]s/
+/Projects/SS/SS/wwwroot/Js/bootstrap.bundle.js
+/Projects/SS/SS/wwwroot/Js/bootstrap.min.js
+/Projects/SS/SS/wwwroot/Js/jquery-3.5.1.min.map

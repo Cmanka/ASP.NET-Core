@@ -1,0 +1,56 @@
+﻿@model SneakerAddViewModel
+
+@{
+    ViewBag.Title = "Add sneakers";
+}
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Sneaker" asp-action="Add">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger mt-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Brand" class="control-label"></label>
+            <select asp-for="BrandId" class="custom-select" asp-items="@(new SelectList(Model.BrandsList,"Id","Name"))">
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Color" class="control-label"></label>
+            <input type="text" asp-for="Color" class="form-control" />
+            <span asp-validation-for="Color" class="text-danger mt-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input type="number" asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger mt-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Count" class="control-label"></label>
+            <input type="number" asp-for="Count" class="form-control" />
+            <span asp-validation-for="Count" class="text-danger mt-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Picture" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="Picture" class="form-control custom-file-input" />
+                <label class="custom-file-label">Choose file...</label>
+            </div>
+            <span asp-validation-for="Picture" class="text-danger mt-2"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add data" class="btn btn-dark" />
+        </div>
+
+        @section Scripts
+    {
+            <script>
+                $(document).ready(function () {
+                    $('custom-file-input').on("change", function () {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).next('.custom-file-label').html(fileName);
+                    });
+                });
+            </script>
+        }
+    </form>

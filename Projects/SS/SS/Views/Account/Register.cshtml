@@ -1,0 +1,50 @@
+﻿@model RegisterViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register form</title>
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Js/jquery-3.5.1.min.map" />
+    <link href="~/Css/signin.css" rel="stylesheet" />
+</head>
+<body class="text-center">
+    <form class="form-signin" asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+        <img class="mb-4" src="~/Images/Icon.jpg" alt="" width="100" height="80">
+        <h1 class="h3 mb-3 font-weight-normal">Welcome to the SS</h1>
+        <div class="form-group">
+            <label asp-for="UserName" class="sr-only"></label>
+            <input asp-for="UserName" class="form-control" placeholder="User name">
+            <span asp-validation-for="UserName" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="sr-only"></label>
+            <input asp-for="Email" class="form-control" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="sr-only"></label>
+            <input asp-for="Password" class="form-control" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="sr-only"></label>
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password">
+            <span asp-validation-for="ConfirmPassword" class="text-danger mt-1"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block btn-dark mt-3" type="submit">Create new account</button>
+        </div>
+        <div class="form-group">
+            <p class="text-muted">© 2020 Sneaker Shop</p>
+        </div>
+
+    </form>
+    <script src="~/Js/bootstrap.min.js"></script>
+</body>
+</html>

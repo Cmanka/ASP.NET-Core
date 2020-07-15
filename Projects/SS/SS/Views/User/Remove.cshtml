@@ -1,0 +1,25 @@
+﻿@model User
+@{
+    ViewBag.Title = "Confirm remove page";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>Role</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="User" asp-action="Remove" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark" value="Remove" />
+            </div>
+        </form>
+    </div>
+</div>

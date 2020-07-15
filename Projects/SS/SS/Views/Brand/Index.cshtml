@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Brand>
+
+@{
+    ViewBag.Title = "Brands List";
+}
+
+<table class="table table-hover table-bordered table-light" style="font-size:1.5rem;font-weight:600; border-spacing:7px 11px">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th colspan="2" style="text-align:center;"><a asp-action="Add" class="btn btn-dark active" role="button" aria-pressed="true">Add brand</a></th>
+    </tr>
+    @foreach (var brands in Model)
+    {
+        <tr>
+            <td>@brands.Name</td>
+            <td style="width:50px">
+                <a asp-controller="Brand" asp-action="Remove" asp-route-id="@brands.Id" class="btn btn-dark active">Remove</a>
+            </td>
+            <td style="width:50px">
+                <a asp-controller="Brand" asp-action="Edit" asp-route-id="@brands.Id" class="btn btn-dark active">Edit</a>
+            </td>
+        </tr>
+    }
+</table>

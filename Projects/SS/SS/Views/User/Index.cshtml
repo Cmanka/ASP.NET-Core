@@ -1,0 +1,27 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewBag.Title = "User List";
+}
+
+<table class="table table-hover table-bordered table-light" style="font-size:1.5rem;font-weight:600; border-spacing:7px 11px">
+    <tr>
+        <th>User Name</th>
+        <th>User Role</th>
+        <th style="text-align:center;"><a asp-controller="User" asp-action="Add" class="btn btn-dark active" role="button" aria-pressed="true">Add User</a></th>
+        <th style="text-align:center;"><a asp-controller="Role" asp-action="Add" class="btn btn-dark active" role="button" aria-pressed="true">Add Role</a></th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@user.Role</td>
+            <td style="width:50px">
+                <a asp-controller="User" asp-action="Remove" asp-route-id="@user.Id" class="btn btn-dark active">Remove</a>
+            </td>
+            <td style="width:50px">
+                <a asp-controller="User" asp-action="Edit" asp-route-id="@user.Id" class="btn btn-dark active">Edit</a>
+            </td>
+        </tr>
+    }
+</table>
