@@ -6,6 +6,16 @@ namespace REST_API_app.Data
 {
     public class MockCommanderRepo : ICommanderRepo
     {
+        public void CreateCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
         public Command GetCommandById(int id)
         {
             return new Command { Id = 0, HowTo = "Some instruction", Line = "Some line", Platform = "Some platfrom" };
@@ -21,6 +31,16 @@ namespace REST_API_app.Data
             };
 
             return commands;
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateCommand(Command command)
+        {
+            throw new NotImplementedException();
         }
     }
 }
